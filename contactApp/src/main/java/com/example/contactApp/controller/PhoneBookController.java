@@ -1,10 +1,12 @@
 package com.example.contactApp.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +19,7 @@ import com.example.contactApp.service.PhonebookService;
 
 
 @RestController
-@RequestMapping("/contacts")
+@RequestMapping(path="/contacts", consumes="application/json")
 public class PhoneBookController {
 	 @Autowired
      PhonebookService phoneService;
@@ -41,20 +43,20 @@ public class PhoneBookController {
      }
      
      //UPDATE PERSONS
-     @PutMapping("/persons")
-     public PersonModel updatePersons(Long id, PersonModel personsInfo) {
+     @PutMapping("/persons/{id}")
+     public PersonModel updatePersons(@PathVariable(value="id") Long id, @RequestBody PersonModel personsInfo) {
     	 return phoneService.updatePersons(id, personsInfo);
      }
      
      //UPDATE ORGANIZATIONS
-     @PutMapping("/organizations")
-     public OrganizationModel updateContacts(Long id, OrganizationModel orgInfo) {
+     @PutMapping("/organizations/{id}")
+     public OrganizationModel updateContacts(@PathVariable(value="id") Long id, @RequestBody OrganizationModel orgInfo) {
     	 return phoneService.updateOrganizations(id, orgInfo);
      }
      
-     //DELETE
-     @DeleteMapping("/all")
-     public void deleteTrack(Long id) {
+     //DELETE CONTACT
+     @DeleteMapping("/{id}")
+     public void deleteTrack(@PathVariable(value="id") Long id) {
      	phoneService.deleteContacts(id);
      }
      
@@ -63,7 +65,5 @@ public class PhoneBookController {
      //public Music patchTrack(@PathVariable(value = "id") Long id, @PathVariable(value = "name") String name) {
      	//return musicService.patchTrack(id, name);
      //}
-
-     
 
 }

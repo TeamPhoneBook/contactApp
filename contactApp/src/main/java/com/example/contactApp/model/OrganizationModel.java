@@ -12,6 +12,8 @@ public class OrganizationModel extends Contact {
         	this.website = website;
         }
 
+        public OrganizationModel() {}
+        
 		public String getWebsite() {
 			return website;
 		}

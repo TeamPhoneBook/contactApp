@@ -14,6 +14,8 @@ public class PersonModel extends Contact {
         	this.email= email;
         	this.dob = dob;
         }
+        
+        public PersonModel() {}
 
 		public String getEmail() {
 			return email;
