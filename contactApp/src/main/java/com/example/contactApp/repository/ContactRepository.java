@@ -1,11 +1,15 @@
 
 package com.example.contactApp.repository;
+
+import com.example.contactApp.model.Contact;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+
+
 	
 	@Repository
-	public interface ContactRepository extends JpaRepository<ContactApp, Long> {
+	public interface ContactRepository extends JpaRepository<Contact, Long> {
 	}
 	
 
