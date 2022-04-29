@@ -46,7 +46,7 @@ public Contact updateContacts(Long Id, Contact contactsDetails) {
      contacts.setName(contactsDetails.getName());
      contacts.setPhoneNumber(contactsDetails.getPhoneNumber());
      contacts.setCreatedAt(contactsDetails.getCreatedAt());
-     contacts.setEmail(contactsDetails.getEmail());
+     contacts.setEmail(contactsDetails.getEmail();
      contacts.setDob(contactsDetails.getDob());
      contacts.setWebsite(contactsDetails.getWebsite());
      
