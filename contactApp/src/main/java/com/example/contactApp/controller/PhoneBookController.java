@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.contactApp.model.Contact;
-import com.example.contactApp.model.OrganizationModel;
-import com.example.contactApp.model.PersonModel;
+import com.example.contactApp.model.Organization;
+import com.example.contactApp.model.Person;
 import com.example.contactApp.service.PhonebookService;
 
 
@@ -26,13 +26,13 @@ public class PhoneBookController {
 
 	 //CREATE PERSON ENTRY
      @PostMapping("/persons")
-     public Contact createPerson(@RequestBody PersonModel person) {
+     public Contact createPerson(@RequestBody Person person) {
     	 return phoneService.createPerson(person);
      }
      
      //CREATE ORGANIZATION ENTRY
      @PostMapping("/organization")
-     public Contact createOrganization(@RequestBody OrganizationModel organization) {
+     public Contact createOrganization(@RequestBody Organization organization) {
     	 return phoneService.createOrganization(organization);
      }
      
@@ -44,13 +44,13 @@ public class PhoneBookController {
      
      //UPDATE PERSONS
      @PutMapping("/persons/{id}")
-     public PersonModel updatePersons(@PathVariable(value="id") Long id, @RequestBody PersonModel personsInfo) {
+     public Person updatePersons(@PathVariable(value="id") Long id, @RequestBody Person personsInfo) {
     	 return phoneService.updatePersons(id, personsInfo);
      }
      
      //UPDATE ORGANIZATIONS
      @PutMapping("/organizations/{id}")
-     public OrganizationModel updateContacts(@PathVariable(value="id") Long id, @RequestBody OrganizationModel orgInfo) {
+     public Organization updateContacts(@PathVariable(value="id") Long id, @RequestBody Organization orgInfo) {
     	 return phoneService.updateOrganizations(id, orgInfo);
      }
      

@@ -3,9 +3,9 @@ package com.example.contactApp.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.contactApp.model.PersonModel;
+import com.example.contactApp.model.Person;
 import com.example.contactApp.model.Contact;
-import com.example.contactApp.model.OrganizationModel;
+import com.example.contactApp.model.Organization;
 import com.example.contactApp.repository.ContactRepository;
 
 
@@ -19,12 +19,12 @@ public class PhonebookService extends Contact {
         ContactRepository contactsRepository;
 
         	//CREATE PERSON
-			public Contact createPerson(PersonModel person) {
+			public Contact createPerson(Person person) {
 				return contactsRepository.save(person);
 			}
 
 			//CREATE ORGANIZATION
-			public Contact createOrganization(OrganizationModel organization) {
+			public Contact createOrganization(Organization organization) {
 				return contactsRepository.save(organization);
 			}
 
@@ -40,8 +40,8 @@ public class PhonebookService extends Contact {
 			}
 
 			//UPDATE PERSON CONTACTS
-			public PersonModel updatePersons(Long Id, PersonModel personDetails) {
-				PersonModel persons = (PersonModel) contactsRepository.findById(Id).get();
+			public Person updatePersons(Long Id, Person personDetails) {
+				Person persons = (Person) contactsRepository.findById(Id).get();
 
 				persons.setEmail(personDetails.getEmail());
 				persons.setDob(personDetails.getDob());
@@ -50,8 +50,8 @@ public class PhonebookService extends Contact {
 			}
 
 			//UPDATE ORGANIZATION CONTACTS
-			public OrganizationModel updateOrganizations(Long Id, OrganizationModel orgDetails) {
-				OrganizationModel organization = (OrganizationModel) contactsRepository.findById(Id).get();
+			public Organization updateOrganizations(Long Id, Organization orgDetails) {
+				Organization organization = (Organization) contactsRepository.findById(Id).get();
 
 				organization.getClass().toString();
 				organization.setWebsite(orgDetails.getWebsite());

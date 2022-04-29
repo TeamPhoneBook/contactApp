@@ -3,19 +3,19 @@ package com.example.contactApp.model;
 import javax.persistence.Entity;
 
 @Entity
-public class PersonModel extends Contact {
+public class Person extends Contact {
         
         private String email;
         
         private String dob;
         
-        public PersonModel(String name, String phoneNumber, String createdAt, String email, String dob) {
+        public Person(String name, String phoneNumber, String createdAt, String email, String dob) {
         	super(name, phoneNumber, createdAt);
         	this.email= email;
         	this.dob = dob;
         }
         
-        public PersonModel() {}
+        public Person() {}
 
 		public String getEmail() {
 			return email;

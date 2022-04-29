@@ -3,16 +3,16 @@ package com.example.contactApp.model;
 import javax.persistence.Entity;
 
 @Entity
-public class OrganizationModel extends Contact {
+public class Organization extends Contact {
         
         private String website;
         
-        public OrganizationModel(String name, String phoneNumber, String createdAt, String website) {
+        public Organization(String name, String phoneNumber, String createdAt, String website) {
         	super(name, phoneNumber, createdAt);
         	this.website = website;
         }
 
-        public OrganizationModel() {}
+        public Organization() {}
         
 		public String getWebsite() {
 			return website;
