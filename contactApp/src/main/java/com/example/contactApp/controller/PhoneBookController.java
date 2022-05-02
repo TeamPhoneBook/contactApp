@@ -1,7 +1,6 @@
 package com.example.contactApp.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,25 +18,25 @@ import com.example.contactApp.service.PhonebookService;
 
 
 @RestController
-@RequestMapping(path="/contacts", consumes="application/json")
+@RequestMapping(path="/contactbook", consumes="application/json")
 public class PhoneBookController {
 	 @Autowired
      PhonebookService phoneService;
 
 	 //CREATE PERSON ENTRY
-     @PostMapping("/persons")
+     @PostMapping("/add-person")
      public Contact createPerson(@RequestBody Person person) {
     	 return phoneService.createPerson(person);
      }
      
      //CREATE ORGANIZATION ENTRY
-     @PostMapping("/organization")
+     @PostMapping("/add-organization")
      public Contact createOrganization(@RequestBody Organization organization) {
     	 return phoneService.createOrganization(organization);
      }
      
      //READ CONTACTS
-     @GetMapping("/all")
+     @GetMapping("/read-all")
      public List<Contact> readContacts() {
          return phoneService.getContacts();
      }
