@@ -39,24 +39,32 @@ public class PhonebookService extends Contact {
 				contactsRepository.deleteById(Id);
 			}
 
-			//UPDATE PERSON CONTACTS
-			public Person updatePersons(Long Id, Person personDetails) {
-				Person persons = (Person) contactsRepository.findById(Id).get();
-
-				persons.setEmail(personDetails.getEmail());
-				persons.setDob(personDetails.getDob());
-
-				return contactsRepository.save(persons);
+			//UPDATE CONTACT
+			public Contact updateContact(Long Id, Contact newInfo) {
+				Contact contact = contactsRepository.getById(Id);
+				
+				contact.setName(newInfo.getName());
+				contact.setCreatedAt(newInfo.getCreatedAt());
+				contact.setPhoneNumber(newInfo.getPhoneNumber());
+				
+				return contactsRepository.save(contact);
 			}
-
-			//UPDATE ORGANIZATION CONTACTS
-			public Organization updateOrganizations(Long Id, Organization orgDetails) {
-				Organization organization = (Organization) contactsRepository.findById(Id).get();
-
-				organization.getClass().toString();
-				organization.setWebsite(orgDetails.getWebsite());
-
-				return contactsRepository.save(organization);
+			
+			//PATCH CONTACT NAME
+			public Contact updateContactName(Long Id, String newName) {
+				Contact contact = contactsRepository.getById(Id);
+				
+				contact.setName(newName);
+				
+				return contactsRepository.save(contact);
 			}
-
+			
+			//PATCH CONTACT NUMBER
+			public Contact updateContactNumber(Long Id, String newNumber) {
+				Contact contact = contactsRepository.getById(Id);
+				
+				contact.setPhoneNumber(newNumber);
+				
+				return contactsRepository.save(contact);
+			}
 }
